@@ -8,6 +8,7 @@ public class Abs implements Function {
     public Abs(Function number) {
         this.number = number;
     }
+
   @Override
   public <K> K accept(Visitor<K> visitor) {
     return visitor.visit(this);

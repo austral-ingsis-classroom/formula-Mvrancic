@@ -12,7 +12,7 @@ public class Number implements Function {
     return visitor.visit(this);
   }
 
-  public String getIdentifier() {
+  public String getNumber() {
     return number;
   }
 }

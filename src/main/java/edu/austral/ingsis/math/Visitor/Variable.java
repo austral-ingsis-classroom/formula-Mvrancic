@@ -12,7 +12,7 @@ public class Variable implements Function{
     return visitor.visit(this);
   }
 
-  public String getIdentifier(){
+  public String getName(){
     return name;
   }
 }
