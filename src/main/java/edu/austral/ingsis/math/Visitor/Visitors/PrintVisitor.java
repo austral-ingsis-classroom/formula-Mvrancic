@@ -43,9 +43,9 @@ public class PrintVisitor implements Visitor<String> {
   }
 
   @Override
-  public String visit(Number number) {
-    return number.getNumber().toString();
-  }
+public String visit(Number number) {
+    return String.valueOf(number.getNumber().intValue());
+}
 
   @Override
   public String visit(Variable variable) {

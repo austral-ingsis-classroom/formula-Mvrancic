@@ -19,6 +19,10 @@ public class EvaluateVisitor implements Visitor<Double> {
     this(Map.of());
   }
 
+  public EvaluateVisitor setVariables(Map<String,Double> variables) {
+    return new EvaluateVisitor(variables);
+  }
+
   @Override
   public Double visit(Add add) {
     return add.getLeft().accept(this) + add.getRight().accept(this);

@@ -1,0 +1,115 @@
+@startuml
+
+interface Function {
+    + accept(visitor: Visitor<K>: K)
+}
+
+class Number implements Function{
+    -number: double
+    + getNumber(): double
+    + accept(visitor: Visitor<K>): K
+}
+class Variable implements Function{
+    - name: string
+    + getName(): String
+    + accept(visitor: Visitor<K>): K
+}
+class Add implements Function{
+    -left: Function
+    -right: Function
+    + getLeft(): Function
+    + getRight(): Function
+    + accept(visitor: Visitor<K>): K
+}
+class Mult implements Function{
+    -left: Function
+        -right: Function
+        + getLeft(): Function
+        + getRight(): Function
+        + accept(visitor: Visitor<K>): K
+}
+class Div implements Function{
+    -left: Function
+        -right: Function
+        + getLeft(): Function
+        + getRight(): Function
+        + accept(visitor: Visitor<K>): K
+}
+class Sub implements Function{
+    -left: Function
+        -right: Function
+        + getLeft(): Function
+        + getRight(): Function
+        + accept(visitor: Visitor<K>): K
+}
+
+class Root implements Function{
+    -number: Function
+    + getNumber(): Function
+    + accept(visitor: Visitor<K>): K
+}
+class Power implements Function{
+    -left: Function
+        -right: Function
+        + getLeft(): Function
+        + getRight(): Function
+        + accept(visitor: Visitor<K>): K
+}
+class Abs implements Function{
+    -number: Function
+    + getNumber(): Function
+    + accept(visitor: Visitor<K>): K
+}
+
+interface Visitor{
+    + visit(Abs)
+    + visit(Add)
+    + visit(Div)
+    + visit(Mult)
+    + visit(Root)
+    + visit(Sub)
+    + visit(Number)
+    + visit(Variable)
+    + visit(Power)
+}
+
+Function -> Visitor
+
+class PrintVisitor implements Visitor{
+    + visit(Abs): String
+    + visit(Add): String
+    + visit(Div): String
+    + visit(Mult): String
+    + visit(Root): String
+    + visit(Sub): String
+    + visit(Number): String
+    + visit(Variable): String
+    + visit(Power): String
+}
+
+class EvaluateVisitor implements Visitor{
+    + visit(Abs): Double
+    + visit(Add): Double
+    + visit(Div): Double
+    + visit(Mult): Double
+    + visit(Root): Double
+    + visit(Sub): Double
+    + visit(Number): Double
+    + visit(Variable): Double
+    + visit(Power): Double
+}
+
+class GetVariablesVisitor implements Visitor{
+    + visit(Abs): List<String>
+    + visit(Add): List<String>
+    + visit(Div): List<String>
+    + visit(Mult): List<String>
+    + visit(Root): List<String>
+    + visit(Sub): List<String>
+    + visit(Number): List<String>
+    + visit(Variable): List<String>
+    + visit(Power): List<String>
+    - join(List<String> a, List<String> b): List<String>
+}
+
+@enduml
