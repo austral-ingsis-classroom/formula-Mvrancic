@@ -1,0 +1,41 @@
+@startuml
+interface Function {
+    + print(): String
+    + evaluate(Map<String, Double> variables): double
+    + getVariables(): List<String>
+}
+class Number implements Function{
+    number: double
+}
+class Variable implements Function{
+    name: string
+}
+class Add implements Function{
+    left: Function
+    right: Function
+}
+class Mult implements Function{
+    left: Function
+    right: Function
+}
+class Div implements Function{
+    left: Function
+    right: Function
+}
+class Sub implements Function{
+    left: Function
+    right: Function
+}
+class Root implements Function{
+    number: Function
+}
+class Power implements Function{
+    left: Function
+    right: Function
+}
+class Abs implements Function{
+    number: Function
+}
+
+
+@enduml
