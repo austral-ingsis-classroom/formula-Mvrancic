@@ -1,9 +1,9 @@
 package edu.austral.ingsis.math.Visitor;
 
 public class Number implements Function {
-  private final String number;
+  private final Double number;
 
-  public Number(String number){
+  public Number(Double number){
     this.number = number;
   }
 
@@ -12,7 +12,7 @@ public class Number implements Function {
     return visitor.visit(this);
   }
 
-  public String getNumber() {
+  public Double getNumber() {
     return number;
   }
 }

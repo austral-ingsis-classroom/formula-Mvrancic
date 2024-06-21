@@ -14,7 +14,7 @@ public class Root implements Function {
   public <K> K accept(Visitor<K> visitor) {
     return visitor.visit(this);
   }
-  private Function getNumber() {
+  public Function getNumber() {
     return number;
   }
 }

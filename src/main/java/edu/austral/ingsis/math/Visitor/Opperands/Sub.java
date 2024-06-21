@@ -17,10 +17,10 @@ public class Sub implements Function {
   public <K> K accept(Visitor<K> visitor) {
     return visitor.visit(this);
   }
-  private Function getLeft() {
+  public Function getLeft() {
     return left;
   }
-    private Function getRight() {
+    public Function getRight() {
         return right;
     }
 }

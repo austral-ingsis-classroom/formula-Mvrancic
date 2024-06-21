@@ -14,7 +14,7 @@ public class Abs implements Function {
     return visitor.visit(this);
   }
 
-  private Function getNumber() {
+  public Function getNumber() {
     return number;
   }
 }
