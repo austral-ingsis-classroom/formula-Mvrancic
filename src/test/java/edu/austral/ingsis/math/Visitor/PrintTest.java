@@ -1,11 +1,11 @@
 package edu.austral.ingsis.math.Visitor;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import edu.austral.ingsis.math.Visitor.Opperands.*;
 import edu.austral.ingsis.math.Visitor.Visitors.PrintVisitor;
 import org.junit.jupiter.api.Test;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class PrintTest {
 
@@ -33,7 +33,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction3() {
     final String expected = "((9 / 2) * 3)";
-    final String result = visitor.visit(new Mult(new Div(new Number(9.0), new Number(2.0)), new Number(3.0)));
+    final String result =
+        visitor.visit(new Mult(new Div(new Number(9.0), new Number(2.0)), new Number(3.0)));
 
     assertThat(result, equalTo(expected));
   }
@@ -42,7 +43,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction4() {
     final String expected = "((27 / 6) ^ 2)";
-    final String result = visitor.visit(new Power(new Div(new Number(27.0), new Number(6.0)), new Number(2.0)));
+    final String result =
+        visitor.visit(new Power(new Div(new Number(27.0), new Number(6.0)), new Number(2.0)));
 
     assertThat(result, equalTo(expected));
   }
@@ -69,7 +71,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction8() {
     final String expected = "((5 - i) * 8)";
-    final String result = visitor.visit(new Mult(new Sub(new Number(5.0), new Variable("i")), new Number(8.0)));
+    final String result =
+        visitor.visit(new Mult(new Sub(new Number(5.0), new Variable("i")), new Number(8.0)));
 
     assertThat(result, equalTo(expected));
   }

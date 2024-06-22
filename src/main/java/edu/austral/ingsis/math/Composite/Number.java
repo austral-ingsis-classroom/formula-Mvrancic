@@ -3,11 +3,13 @@ package edu.austral.ingsis.math.Composite;
 import java.util.List;
 import java.util.Map;
 
-public class Number implements Function{
-    private final double number;
-    public Number(double number){
-        this.number = number;
-    }
+public class Number implements Function {
+  private final double number;
+
+  public Number(double number) {
+    this.number = number;
+  }
+
   @Override
   public double evaluate(Map<String, Double> variables) {
     return number;

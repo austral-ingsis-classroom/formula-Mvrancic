@@ -1,7 +1,6 @@
 package edu.austral.ingsis.math.Composite.Opperands;
 
 import edu.austral.ingsis.math.Composite.Function;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,9 +23,11 @@ public class Add implements Function {
   public List<String> getVariables() {
     List<String> leftVariables = left.getVariables();
     List<String> rightVariables = right.getVariables();
-    return new ArrayList<>(leftVariables){{
-      addAll(rightVariables);
-    }};
+    return new ArrayList<>(leftVariables) {
+      {
+        addAll(rightVariables);
+      }
+    };
   }
 
   @Override

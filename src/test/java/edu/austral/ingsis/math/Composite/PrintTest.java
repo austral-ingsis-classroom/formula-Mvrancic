@@ -1,10 +1,10 @@
 package edu.austral.ingsis.math.Composite;
 
-import edu.austral.ingsis.math.Composite.Opperands.*;
-import org.junit.jupiter.api.Test;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import edu.austral.ingsis.math.Composite.Opperands.*;
+import org.junit.jupiter.api.Test;
 
 public class PrintTest {
 
@@ -66,7 +66,8 @@ public class PrintTest {
   @Test
   public void shouldPrintFunction8() {
     final String expected = "((5 - i) * 8)";
-    final String result = new Mult(new Sub(new Number(5), new Variable("i")), new Number(8)).print();
+    final String result =
+        new Mult(new Sub(new Number(5), new Variable("i")), new Number(8)).print();
 
     assertThat(result, equalTo(expected));
   }

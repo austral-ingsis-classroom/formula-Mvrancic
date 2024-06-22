@@ -4,14 +4,13 @@ import edu.austral.ingsis.math.Visitor.Number;
 import edu.austral.ingsis.math.Visitor.Opperands.*;
 import edu.austral.ingsis.math.Visitor.Variable;
 import edu.austral.ingsis.math.Visitor.Visitor;
-
 import java.util.Map;
 
 public class EvaluateVisitor implements Visitor<Double> {
 
-  private final Map<String,Double> variables;
+  private final Map<String, Double> variables;
 
-  public EvaluateVisitor(Map<String,Double> variables) {
+  public EvaluateVisitor(Map<String, Double> variables) {
     this.variables = variables;
   }
 
@@ -19,7 +18,7 @@ public class EvaluateVisitor implements Visitor<Double> {
     this(Map.of());
   }
 
-  public EvaluateVisitor setVariables(Map<String,Double> variables) {
+  public EvaluateVisitor setVariables(Map<String, Double> variables) {
     return new EvaluateVisitor(variables);
   }
 

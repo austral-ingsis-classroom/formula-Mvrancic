@@ -9,7 +9,7 @@ public class PrintVisitor implements Visitor<String> {
 
   @Override
   public String visit(Add add) {
-  return "(" + add.getLeft().accept(this) + " + " + add.getRight().accept(this) + ")";
+    return "(" + add.getLeft().accept(this) + " + " + add.getRight().accept(this) + ")";
   }
 
   @Override
@@ -43,9 +43,9 @@ public class PrintVisitor implements Visitor<String> {
   }
 
   @Override
-public String visit(Number number) {
+  public String visit(Number number) {
     return String.valueOf(number.getNumber().intValue());
-}
+  }
 
   @Override
   public String visit(Variable variable) {

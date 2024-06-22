@@ -4,10 +4,8 @@ import edu.austral.ingsis.math.Visitor.Number;
 import edu.austral.ingsis.math.Visitor.Opperands.*;
 import edu.austral.ingsis.math.Visitor.Variable;
 import edu.austral.ingsis.math.Visitor.Visitor;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class GetVariablesVisitor implements Visitor<List<String>> {
 

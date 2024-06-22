@@ -1,16 +1,15 @@
 package edu.austral.ingsis.math.Visitor;
 
-import edu.austral.ingsis.math.Visitor.Opperands.*;
-import edu.austral.ingsis.math.Visitor.Visitors.EvaluateVisitor;
-import org.junit.jupiter.api.Test;
-
-import java.util.Map;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import edu.austral.ingsis.math.Visitor.Opperands.*;
+import edu.austral.ingsis.math.Visitor.Visitors.EvaluateVisitor;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
+
 public class ResolutionWithVariablesTest {
-    private final EvaluateVisitor visitor = new EvaluateVisitor();
+  private final EvaluateVisitor visitor = new EvaluateVisitor();
 
   /** Case 1 + x where x = 3 */
   @Test
@@ -34,7 +33,9 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction3() {
     EvaluateVisitor newEvaluator = visitor.setVariables(Map.of("x", 3d, "y", 4d));
-    final Double result = newEvaluator.visit(new Mult(new Div(new Number(9.0), new Variable("x")), new Variable("y")));
+    final Double result =
+        newEvaluator.visit(
+            new Mult(new Div(new Number(9.0), new Variable("x")), new Variable("y")));
 
     assertThat(result, equalTo(12d));
   }
@@ -43,7 +44,9 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction4() {
     EvaluateVisitor newEvaluator = visitor.setVariables(Map.of("a", 9d, "b", 3d));
-    final Double result = newEvaluator.visit(new Power(new Div(new Number(27.0), new Variable("a")), new Variable("b")));
+    final Double result =
+        newEvaluator.visit(
+            new Power(new Div(new Number(27.0), new Variable("a")), new Variable("b")));
 
     assertThat(result, equalTo(27d));
   }
@@ -52,7 +55,8 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction5() {
     EvaluateVisitor newEvaluator = visitor.setVariables(Map.of("z", 36d));
-    final Double result = newEvaluator.visit(new Power(new Variable("z"), new Div(new Number(1.0), new Number(2.0))));
+    final Double result =
+        newEvaluator.visit(new Power(new Variable("z"), new Div(new Number(1.0), new Number(2.0))));
 
     assertThat(result, equalTo(6d));
   }
@@ -61,7 +65,8 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction6() {
     EvaluateVisitor newEvaluator = visitor.setVariables(Map.of("value", 8d));
-    final Double result = newEvaluator.visit(new Sub(new Abs(new Variable("value")), new Number(8.0)));
+    final Double result =
+        newEvaluator.visit(new Sub(new Abs(new Variable("value")), new Number(8.0)));
 
     assertThat(result, equalTo(0d));
   }
@@ -70,7 +75,8 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction7() {
     EvaluateVisitor newEvaluator = visitor.setVariables(Map.of("value", 8d));
-    final Double result = newEvaluator.visit(new Sub(new Abs(new Variable("value")), new Number(8.0)));
+    final Double result =
+        newEvaluator.visit(new Sub(new Abs(new Variable("value")), new Number(8.0)));
 
     assertThat(result, equalTo(0d));
   }
@@ -79,7 +85,8 @@ public class ResolutionWithVariablesTest {
   @Test
   public void shouldResolveFunction8() {
     EvaluateVisitor newEvaluator = visitor.setVariables(Map.of("i", 2d));
-    final Double result = newEvaluator.visit(new Mult(new Sub(new Number(5.0), new Variable("i")), new Number(8.0)));
+    final Double result =
+        newEvaluator.visit(new Mult(new Sub(new Number(5.0), new Variable("i")), new Number(8.0)));
 
     assertThat(result, equalTo(24d));
   }
